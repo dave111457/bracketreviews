@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/> 
-<meta name="google-site-verification" content="33Bv19QNdGxLilcS5PSNW_fZBggQDMbX5pQnxl6ucu4" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Bracket Reviews | Honest Tech Reviews</title>
 <!-- Clash Display via CDN + Plus Jakarta Sans for body -->
@@ -388,8 +387,6 @@ footer {
   </ul>
 </nav>
 
-  </div>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
@@ -502,16 +499,12 @@ footer {
 
 <!-- ABOUT -->
 <section style="background:var(--white)" id="about">
-  <div class="section">
-        <div class="section-eyebrow">The Creator</div>
-        <!-- ✏️ Replace [Your Name] with your actual name -->
-        <h2 class="section-title">Hey, I'm<br><span>Babatunde</span></h2>
-        <!-- ✏️ Write your real bio here — 2-3 warm, personal sentences -->
-        <p>I'm Babatunde Omotayo — a tech content creator based in Nigeria. Tech can be confusing sometimes, so I make honest reviews that clearly explain smartwatches, earbuds, and smart accessories, with real recommendations you can trust.</p>
-        <p>Join me as we ride and explore the World of Tech together. New videos drop every Thursday and weekend. Simply subscribe — and you're good to go!</p>
-        <a href="https://www.youtube.com/channel/UCpw1kTVo3tHS1YnQuWwWo2Q?sub_confirmation=1" target="_blank" class="btn-primary" style="display:inline-flex;width:fit-content">Subscribe on YouTube</a>
-      </div>
-    </div>
+  <div class="section" style="max-width:680px">
+    <div class="section-eyebrow">The Creator</div>
+    <h2 class="section-title">Hey, I'm<br><span>Babatunde</span></h2>
+    <p>I'm Babatunde Omotayo — a tech content creator based in Nigeria. Tech can be confusing sometimes, so I make honest reviews that clearly explain smartwatches, earbuds, and smart accessories, with real recommendations you can trust.</p>
+    <p>Join me as we ride and explore the World of Tech together. New videos drop every Thursday and weekend. Simply subscribe — and you're good to go!</p>
+    <a href="https://www.youtube.com/channel/UCpw1kTVo3tHS1YnQuWwWo2Q?sub_confirmation=1" target="_blank" class="btn-primary" style="display:inline-flex;width:fit-content">Subscribe on YouTube</a>
   </div>
 </section>
 
@@ -539,7 +532,7 @@ footer {
     <a href="https://www.youtube.com/channel/UCpw1kTVo3tHS1YnQuWwWo2Q" target="_blank" title="YouTube">
       <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1.1-1.1-2.3-1.1-2.8-1.2C16.8 2 12 2 12 2s-4.8 0-7.6.3c-.5.1-1.7.1-2.8 1.2-.8.8-1.1 2.7-1.1 2.7S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1.1 1.1 2.5 1.1 3.1 1.2C6.7 21.1 12 21.1 12 21.1s4.8 0 7.6-.3c.5-.1 1.7-.1 2.8-1.2.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.6V8.7l6.5 3-6.5 2.9z"/></svg>
     </a>
-    <a href="mailto:babsomotden@gmail.com" target="_blank" title="Email">
+    <a href="/cdn-cgi/l/email-protection#f1939093829e9c9e8595949fb1969c90989ddf929e9c" target="_blank" title="Email">
       <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
     </a>
     <a href="https://www.tiktok.com/@bracketreviews" target="_blank" title="TikTok">
@@ -552,17 +545,22 @@ footer {
   <div class="footer-copy">© 2026 Bracket Reviews . All rights reserved.</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
 
 // ── SCROLL REVEAL ──────────────────────────────────────────────
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target);} });
-}, { threshold: 0.1 });
+}, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
 function observeReveals() {
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
 }
 observeReveals();
+
+// ── MOBILE FALLBACK: show all reveals after 1.5s if not triggered
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 1500);
 
 // ── NEWSLETTER ─────────────────────────────────────────────────
 document.getElementById('nlBtn').addEventListener('click', function() {
@@ -580,30 +578,12 @@ document.getElementById('nlBtn').addEventListener('click', function() {
 // ── YOUTUBE RSS AUTO-LOADER ────────────────────────────────────
 (async function loadYouTubeVideos() {
   const CHANNEL_ID = 'UCpw1kTVo3tHS1YnQuWwWo2Q';
-  const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
-
-  // Multiple proxy fallbacks — tries each until one works
-  const PROXIES = [
-    () => fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(RSS_URL)}`,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('bad');return r.json()}).then(d=>d.contents),
-    () => fetch(`https://corsproxy.io/?${encodeURIComponent(RSS_URL)}`,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('bad');return r.text()}),
-    () => fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`).then(r=>r.json()).then(d=>{
-      if(!d.items) throw new Error('bad');
-      // Convert rss2json format to fake XML-like object we can parse
-      return '__RSS2JSON__' + JSON.stringify(d);
-    }),
-  ];
 
   async function fetchRSS() {
-    for (const proxy of PROXIES) {
-      try {
-        const text = await Promise.race([
-          proxy(),
-          new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 7000))
-        ]);
-        if (text && text.includes('<entry>')) return text;
-      } catch(e) { /* try next */ }
-    }
-    throw new Error('All proxies failed');
+    // Use our own Vercel serverless function — no CORS issues
+    const res = await fetch('/api/rss', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('API error: ' + res.status);
+    return await res.text();
   }
 
   function getVideoId(entry) {
@@ -650,17 +630,7 @@ document.getElementById('nlBtn').addEventListener('click', function() {
     const xmlText = await fetchRSS();
     let videos;
 
-    if (xmlText.startsWith('__RSS2JSON__')) {
-      // rss2json fallback
-      const data = JSON.parse(xmlText.slice(12));
-      videos = data.items
-        .filter(item => item.link)
-        .slice(0, 4)
-        .map(item => {
-          const m = item.link.match(/v=([^&]+)/);
-          return { id: m ? m[1] : null, title: item.title, published: item.pubDate, description: item.description?.replace(/<[^>]+>/g,'').trim() || '' };
-        }).filter(v => v.id);
-    } else {
+    {
       const parser = new DOMParser();
       const xml = parser.parseFromString(xmlText, 'text/xml');
       const entries = Array.from(xml.querySelectorAll('entry'));
@@ -719,16 +689,4 @@ document.getElementById('nlBtn').addEventListener('click', function() {
     document.getElementById('featured-desc').textContent = 'Check your connection or visit the channel directly on YouTube.';
     document.getElementById('video-grid').innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted);font-size:0.9rem;">
-        Unable to load videos automatically. <a href="https://www.youtube.com/channel/${CHANNEL_ID}/videos" target="_blank" style="color:var(--green)">View on YouTube →</a>
-      </div>`;
-  }
-})();
-
-
-
-
-</script>
-
-
-</body>
-</html>
+        Unable to load videos automatically. <a href="https://www.youtube.com/ch
